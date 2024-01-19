@@ -9,11 +9,8 @@ public:
         }
 
         if (dp[i][j] <= sum) {
-            // If the current DP value is less than or equal to the current sum, return
             return;
         }
-
-        // Update the DP value at the current position
         dp[i][j] = sum;
 
         if (i < n - 1) {
