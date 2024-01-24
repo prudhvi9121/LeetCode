@@ -13,12 +13,7 @@ class Solution {
 public:
     int res=0;
     void palindrome(TreeNode* root,int vec){
-        if( (vec>>(root->val)) & 1 ){
-            vec ^= (1<<root->val);
-        }
-        else{
-            vec |= (1<<root->val);
-        }
+        vec ^= (1<<root->val);
         if(!root)return ;
         if(!root->left and !root->right){
             if(!(vec) or !((vec-1)&vec)) res+=1;
