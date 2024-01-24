@@ -23,7 +23,6 @@ public:
         if(root->right)palindrome(root->right,vec);
     }
     int pseudoPalindromicPaths (TreeNode* root) {
-        vector<int>vec(9,0);
         palindrome(root,0);
         return res;
     }
