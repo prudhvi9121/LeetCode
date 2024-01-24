@@ -21,8 +21,7 @@ public:
         }
         if(!root)return ;
         if(!root->left and !root->right){
-            int f = __builtin_popcount(vec);
-            if(f==0 or f==1) res+=1;
+            if(!(vec) or !((vec-1)&vec)) res+=1;
             return ;
         }
         if(root->left)palindrome(root->left,vec);
