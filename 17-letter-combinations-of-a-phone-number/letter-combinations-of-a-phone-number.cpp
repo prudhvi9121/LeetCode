@@ -10,7 +10,7 @@ public:
         int digit=dig[i]-'0';
         for(int k=0;k<samp[digit].size();k++){
             st.push_back(samp[digit][k]);
-            cout<<st<<endl;
+//cout<<st<<endl;
             Phonecombos(dig,i+1,ls,st);
             st.pop_back();
         }
