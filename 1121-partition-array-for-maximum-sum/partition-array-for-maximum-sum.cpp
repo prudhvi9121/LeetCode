@@ -6,13 +6,11 @@ int fun(vector<int>&arr,int k,int i){
     if(dp[i]!=-1) return dp[i];
     int res=INT_MIN;
     int ans=INT_MIN;
-    int len=0;
     for(int jj=0;jj<k;jj++){
         if(i+jj<=arr.size()-1){
-            len++;
             ans=max(ans,arr[i+jj]);
-            //cout<<i<<" "<<i+jj<<endl;
-            res=max(res,(len*ans+fun(arr,k,i+jj+1)));
+           // cout<<i<<" "<<i+jj<<" "<<len<<endl;
+            res=max(res,((jj+1)*ans+fun(arr,k,i+jj+1)));
         }
     }
     return dp[i]=res;
