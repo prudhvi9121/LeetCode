@@ -1,6 +1,6 @@
 class Solution {
 public:
-int dp[501];
+int dp[500];
 int fun(vector<int>&arr,int k,int i){
     if(i==arr.size()) return 0;
     if(dp[i]!=-1) return dp[i];
