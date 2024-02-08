@@ -1,21 +1,19 @@
 class Solution {
 public:
-    vector<vector<int>>dp;
-    int sqq(int n,int i){
+    int dp[10005];
+    int sqq(int n){
         if(n==0) return 0;
-        if(i*i>n) return 1e8;
-        if(dp[i][n]!=-1) return dp[i][n];
-        int pick=0;
-        if((i*i)<=n){
-            pick=1+sqq(n-(i*i),i);
+        if(dp[n]!=-1) return dp[n];
+        int res=INT_MAX;
+        for(int i=1;i*i<=n;i++){
+            int pick=1+sqq(n-(i*i));
+            res=min(res,pick);
         }
-        int nopick=0+sqq(n,i+1);
-        return dp[i][n]=min(pick,nopick);
+        return dp[n]=res;
     }
     int numSquares(int n) {
-        int m = sqrt(n) + 1;
-        dp.resize(m,vector<int>(n + 1, -1));
-        int ans=sqq(n,1);
+        memset(dp,-1,sizeof(dp));
+        int ans=sqq(n);
         return ans;
     }
 };
