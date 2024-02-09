@@ -21,7 +21,6 @@ public:
                     hcf=nums[j];
                 }
             }
-            cout<<endl;
             if(samp.size()>res.size()){
                 res=samp;
             }
