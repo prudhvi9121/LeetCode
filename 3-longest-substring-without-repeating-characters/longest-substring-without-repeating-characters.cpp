@@ -10,12 +10,9 @@ public:
                 res=max(res,i-j+1);
             }
             else{
-                if(j<=mp[s[i]]){j=mp[s[i]]+1;
-               }
-                else{
-                    res=max(res,i-j+1);
-                }
-                 mp[s[i]]=i;
+                if(j<=mp[s[i]]) j=mp[s[i]]+1;
+                else res=max(res,i-j+1);
+                mp[s[i]]=i;
             }
             i++;
         }
