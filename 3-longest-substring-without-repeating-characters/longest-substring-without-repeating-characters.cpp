@@ -5,14 +5,11 @@ public:
         int n=s.length(),i=0,j=0;
         int res=0;
         while(i<n){
-           cout<<"####### "<<i<<" "<<j<<" "<<res<<" "<<s[i]<<endl;
-            
             if(mp.find(s[i])==mp.end()){
                 mp.insert({s[i],i});
                 res=max(res,i-j+1);
             }
             else{
-                cout<<s[i]<<" -- \n";
                 if(j<=mp[s[i]]){j=mp[s[i]]+1;
                }
                 else{
@@ -22,7 +19,6 @@ public:
             }
             i++;
         }
-        cout<<"####### "<<i<<" "<<j<<" "<<res<<endl;
         res=max(res,i-j);
         return res;
     }
