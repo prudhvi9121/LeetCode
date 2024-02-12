@@ -8,7 +8,7 @@ public:
                 mp[nums[i]]++;
                 int k=mp[nums[i]];
                 if(2*k>n){
-                    cout<<k<<endl;
+                    // cout<<k<<endl;
                     n=2*k;
                     res=nums[i];
                 }
