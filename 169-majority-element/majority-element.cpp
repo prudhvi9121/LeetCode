@@ -1,22 +1,15 @@
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        unordered_map<int,int>mp;
-        int n=nums.size(),res=nums[0];
+        int sam=0,cnt=0;
         for(int i=0;i<nums.size();i++){
-            if(mp.find(nums[i])!=mp.end()){
-                mp[nums[i]]++;
-                int k=mp[nums[i]];
-                if(2*k>n){
-                    // cout<<k<<endl;
-                    n=2*k;
-                    res=nums[i];
-                }
+            if(cnt==0){
+                sam=nums[i];
+                cnt++;
             }
-            else{
-                mp.insert({nums[i],1});
-            }
+            else if(sam==nums[i]) cnt++;
+            else cnt--;
         }
-        return res;
+        return sam;
     }
 };
