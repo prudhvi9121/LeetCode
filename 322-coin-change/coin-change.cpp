@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int dp[100005];
+    int dp[10005];
     int coins_cc(vector<int>&coins,int amount){
         if(amount==0) return 0;
         if(amount<0) return 1e9;
