@@ -9,7 +9,7 @@ public:
         for(int j=i+1;j<=s.size();j++){
             if(mp.find(s.substr(i,j-i))!=mp.end()){
                 k=word(s,j);
-                dp[i]=k;
+                dp[j]=k;
             }
             if(k==1) return 1;
         }
