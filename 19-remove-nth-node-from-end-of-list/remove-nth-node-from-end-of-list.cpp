@@ -18,7 +18,6 @@ public:
         }       
         if (fast == NULL) {
             ListNode* newHead=head->next;
-            delete head;
             return newHead;
         }      
         while (fast->next) {
