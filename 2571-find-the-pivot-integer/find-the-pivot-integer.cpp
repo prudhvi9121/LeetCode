@@ -7,8 +7,6 @@ public:
             vv[i]=vv[i-1]+(i+1);
         }
         int check=vv[n-1];
-        cout<<check<<" ";
-        for(auto it:vv) cout<<it<<" ";
         for(int i=0;i<n;i++){
             if(check-vv[i]+i+1 == vv[i]) return i+1;
         }
