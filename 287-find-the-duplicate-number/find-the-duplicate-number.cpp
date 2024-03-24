@@ -9,7 +9,6 @@ public:
                 i = nums[i];
                 nums[temp] = -1;
             }
-            
         }
         return 0;
     }
