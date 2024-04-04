@@ -14,9 +14,7 @@ public:
         int k=0;
         string res;
         for(int i=0;i<s.size();i++){
-            if(check(s[i])){
-                res+=kk[k++];
-            }
+            if(check(s[i])) res+=kk[k++];
             else res+=s[i];
         }
         return res;
