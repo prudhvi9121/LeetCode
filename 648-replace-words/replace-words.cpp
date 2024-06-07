@@ -15,7 +15,7 @@ public:
                 if (!flg) {
                     temp += sentence[i];
                 }
-                if (mp[temp]) {
+                if (mp.count(temp)) {
                     flg = 1;
                 }
             }
