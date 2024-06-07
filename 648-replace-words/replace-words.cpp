@@ -15,7 +15,7 @@ public:
                 if (!flg) {
                     temp += sentence[i];
                 }
-                if (mp.find(temp) != mp.end()) {
+                if (mp[temp]) {
                     flg = 1;
                 }
             }
