@@ -1,6 +1,9 @@
 class Solution {
 public:
     int maxSubArray(vector<int>& nums) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
         int res=INT_MIN,temp_sum=0;
         int i=0,n=nums.size();
         while(i<n){
