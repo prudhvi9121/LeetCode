@@ -6,21 +6,22 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
+ * right(right) {}
  * };
  */
 class Solution {
 public:
-    void solve(vector<int>&res,TreeNode *root){
-        if(!root) return ;
+    void solve(vector<int>& res, TreeNode* root) {
+        if (!root)
+            return;
         res.push_back(root->val);
-        solve(res,root->left);
-        solve(res,root->right);
-        
+        solve(res, root->left);
+        solve(res, root->right);
     }
     vector<int> preorderTraversal(TreeNode* root) {
-        vector<int>res;
-        solve(res,root);
+        vector<int> res;
+        solve(res, root);
         return res;
     }
 };
