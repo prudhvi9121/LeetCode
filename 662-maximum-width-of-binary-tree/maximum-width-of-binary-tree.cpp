@@ -20,19 +20,17 @@ public:
 
         while (!qq.empty()) {
             int k = qq.size();
-            vector<unsigned long long> samp;
-
+            unsigned long long left1=0,right1=0;
             for (int i = 0; i < k; ++i) {
                 TreeNode* nn = qq.front().first;
                 unsigned long long l = qq.front().second;
-                samp.push_back(l);
                 qq.pop();
-
+                if(i==0) left1=l;
+                if(i==k-1) right1=l;
                 if (nn->left) qq.push({nn->left, 2 * l});
                 if (nn->right) qq.push({nn->right, 2 * l + 1});
             }
-
-            res = max(res, samp.back() - samp.front());
+            res = max(res, right1 - left1);
         }
 
         return res + 1;
