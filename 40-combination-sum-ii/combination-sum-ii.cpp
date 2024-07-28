@@ -1,9 +1,9 @@
 class Solution {
 public:
-    set<vector<int>>ans;
+    vector<vector<int>>ans;
     void solve(vector<int>&samp,vector<int>&cand,int tar,int i){
         if(tar==0){
-            ans.insert(samp);
+            ans.push_back(samp);
             return ;
         }
         if(i>=cand.size() || tar<=0) return ;
@@ -18,6 +18,6 @@ public:
         sort(candidates.begin(),candidates.end());
         vector<int>samp;
         solve(samp,candidates,target,0);
-        return vector(ans.begin(),ans.end());
+        return ans;
     }
 };
