@@ -12,13 +12,12 @@ public:
             ans.push_back(samp);
             return ;
         }
-        if(i>s.size()) return ;
-        for(int ind=i;i<s.size();i++){
-            string sub=s.substr(ind,i-ind+1);
+        for(int ind=i;ind<s.size();ind++){
+            string sub=s.substr(i,ind-i+1);
             //cout<<ind<<" "<<i-ind+1<<" "<<sub<<endl;
             if(palindrome(sub)){
                 samp.push_back(sub);
-                solve(samp,s,i+1);
+                solve(samp,s,ind+1);
                 samp.pop_back();
             }
         }
