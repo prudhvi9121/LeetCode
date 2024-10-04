@@ -8,7 +8,7 @@ public:
                 if (cnt > 2) {
                     nums[i] = 100000;
                     res++;
-                    nums.push_back(-100000);
+                   // nums.push_back(-100000);
                 }
             } else {
                 cnt = 1;
