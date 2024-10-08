@@ -25,11 +25,5 @@ public:
     }
     bool isValidSudoku(vector<vector<char>>& board) {
          return valid(board);
-         for(auto it:board){
-            for(auto k:it){
-                if(k=='.') return 0;
-            }
-         }
-         return 1;
     }
 };
