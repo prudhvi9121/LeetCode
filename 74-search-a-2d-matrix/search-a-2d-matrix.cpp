@@ -1,7 +1,6 @@
 class Solution {
 public:
     bool binarysearch(int low,int high,int row,vector<vector<int>>&matrix,int tar){
-        cout<<"HEllo";
         while(low<=high){
             int mid=(high+low)/2;
             if(matrix[row][mid]==tar) return true;
