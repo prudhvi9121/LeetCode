@@ -1,7 +1,7 @@
 class Solution {
 public:
-    int ans=0;
-    void merge(vector<int>&arr,int low,int mid,int high){
+    int ans = 0;
+    void merge(vector<int>& arr, int low, int mid, int high) {
         int left = low;
         int right = mid + 1;
         vector<int> temp;
@@ -22,23 +22,24 @@ public:
                 temp.push_back(arr[right++]);
             }
         }
-        while(left<=mid)temp.push_back(arr[left++]);
-        while(right<=high) temp.push_back(arr[right++]);
-        for(int i=0;i<temp.size();i++){
-            arr[low+i]=temp[i];
+        while (left <= mid)
+            temp.push_back(arr[left++]);
+        while (right <= high)
+            temp.push_back(arr[right++]);
+        for (int i = 0; i < temp.size(); i++) {
+            arr[low + i] = temp[i];
         }
     }
-    void ms(vector<int>&nums,int low,int high){
-        if(low<high){
-            int mid = (low+high)/2;
-            ms(nums,low,mid);
-            ms(nums,mid+1,high);
-            merge(nums,low,mid,high);
+    void ms(vector<int>& nums, int low, int high) {
+        if (low < high) {
+            int mid = (low + high) / 2;
+            ms(nums, low, mid);
+            ms(nums, mid + 1, high);
+            merge(nums, low, mid, high);
         }
     }
     int reversePairs(vector<int>& nums) {
-        ms(nums,0,nums.size()-1);
-        for(auto it:nums) cout<<it<<" ";
+        ms(nums, 0, nums.size() - 1);
         return ans;
     }
 };
