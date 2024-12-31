@@ -1,30 +1,32 @@
 class Solution {
 public:
-    vector<vector<string>> ans;
-    bool palindrome(string k){
-        for(int i=0,j=k.size()-1;i<k.size()/2;i++,j--){
-            if(k[i]!=k[j]) return 0;
+    vector<vector<string>>res;
+    bool is_pali(string sub){
+        int i=0,n=sub.size();
+        int k=n-1;
+        for(int i=0,k=n-1;i<n/2;i++,k--){
+            if(sub[i]!=sub[k]) return false;
         }
-        return 1;
+        return true;
     }
-    void solve(vector<string>&samp,const string &s,int i){
-        if(i==s.size()){
-            ans.push_back(samp);
+    void string_parititon(string s,vector<string>&cur,int st){
+        if(st==s.size()){
+            res.push_back(cur);
             return ;
         }
-        for(int ind=i;ind<s.size();ind++){
-            string sub=s.substr(i,ind-i+1);
-            //cout<<ind<<" "<<i-ind+1<<" "<<sub<<endl;
-            if(palindrome(sub)){
-                samp.push_back(sub);
-                solve(samp,s,ind+1);
-                samp.pop_back();
+        for(int i=st;i<s.size();i++){
+            // cout<<st<<" "<<i<<endl;
+            string sub=s.substr(st,i-st+1);
+            if(is_pali(sub)){
+                cur.push_back(sub);
+                string_parititon(s,cur,i+1);
+                cur.pop_back();
             }
         }
     }
     vector<vector<string>> partition(string s) {
-        vector<string>samp;
-        solve(samp,s,0);
-        return ans;
+        vector<string>curr;
+        string_parititon(s,curr,0);
+        return res;
     }
 };
