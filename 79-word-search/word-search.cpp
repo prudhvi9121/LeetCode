@@ -1,28 +1,28 @@
 class Solution {
 public:
-    int row,col;
-    int exist1(vector<vector<char>>& board,string word,int i,int j,int k){
-         if (i < 0 || i >= row || j < 0 || j >= col || board[i][j] != word[k])
-            return 0;
-        if (k == word.size()-1)
-            return 1;
-        char temp=board[i][j];
-        board[i][j] = ' ';
-        int a1 = exist1(board,word,i+1,j,k+1);
-        int a2 = exist1(board,word,i,j+1,k+1);
-        int a3 = exist1(board,word,i-1,j,k+1);
-        int a4 = exist1(board,word,i,j-1,k+1);
-        board[i][j] = temp; 
-        return a1 || a2 || a3 || a4;   
+    bool can_find(vector<vector<char>>& board, int i, int j, string word,
+                  int k) {
+        if (k == word.size())
+            return true;
+        if (i < 0 || j < 0 || j >= board[0].size() || i >= board.size() || word[k] != board[i][j])
+            return false;
+        char temp = board[i][j];
+        board[i][j] = '-';
+        bool will = can_find(board, i, j - 1, word, k + 1) ||
+                    can_find(board, i, j + 1, word, k + 1) ||
+                    can_find(board, i - 1, j, word, k + 1) ||
+                    can_find(board, i + 1, j, word, k + 1);
+        board[i][j] = temp;
+        return will;
     }
     bool exist(vector<vector<char>>& board, string word) {
-        row=board.size();
-        col=board[0].size(); 
+        int row = board.size();
+        int col = board[0].size();
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-                if (exist1(board,word,i,j,0)) return 1;
+                if (board[i][j] == word[0] && can_find(board, i, j, word, 0)) return true;
             }
         }
-        return 0; 
+        return false;
     }
 };
