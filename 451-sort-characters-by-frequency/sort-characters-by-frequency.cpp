@@ -13,7 +13,7 @@ public:
         sort(freq.begin(),freq.end(),cmp);
         string res;
         for(auto it:freq){
-            if (it.first == 0) continue;
+            if (it.first == 0) break;
             res.append(it.first, it.second);
         }
         return res;
