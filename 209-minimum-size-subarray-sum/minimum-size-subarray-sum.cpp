@@ -1,21 +1,20 @@
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
-        int mini=INT_MAX,sum=0,i=0,j=0;
-        while(j<nums.size() ){
-            if(sum<target) sum+=nums[j++];
-            else{
-                while(sum>=target){
-                    mini=min(mini,j-i);
-                    sum-=nums[i++];
-                }
+        int i = 0;
+        int n = nums.size();
+        int res = INT_MAX;
+        int j = 0;
+        int temp = 0;
+        while(i<n){
+            temp += nums[i];
+           while(temp >= target){
+                res = min(res,(i-j+1));
+                temp -= nums[j];
+                j++;
             }
-            // cout<<mini<<" "<<j<<endl;
+            i++;
         }
-        while(sum>=target){
-            mini=min(mini,j-i);
-            sum-=nums[i++];
-        }
-        return (mini==INT_MAX) ? 0 :  mini;
+        return res==INT_MAX ? 0 : res;
     }
 };
