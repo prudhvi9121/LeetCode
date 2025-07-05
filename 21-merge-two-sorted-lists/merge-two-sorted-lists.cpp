@@ -27,18 +27,8 @@ public:
             temp->next = newNode;
             temp = temp->next;
         }
-        while(temp1){
-            ListNode* newNode=new ListNode(temp1->val);
-            temp->next = newNode;
-            temp=temp->next;
-            temp1=temp1->next;
-        }
-        while(temp2){
-            ListNode* newNode=new ListNode(temp2->val);
-            temp->next = newNode;
-            temp=temp->next;
-            temp2=temp2->next;
-        }
+        if(temp1) temp->next = temp1;
+        if(temp2) temp->next = temp2;
         return res->next;
     }
 };
